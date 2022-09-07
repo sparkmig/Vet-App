@@ -14,7 +14,7 @@ namespace MauiVetApp.Models
 
         public PetsPageModel()
         {
-            Pets = new PetService().GetPets();
+            Pets = new PetService().GetPets().ToList();
         }
     }
 }

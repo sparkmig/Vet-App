@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Vet.Models
 {
+    [Table("Owners")]
     public class Owner
     {
         public int Id { get; set; }

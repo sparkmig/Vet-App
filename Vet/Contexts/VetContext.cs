@@ -14,6 +14,7 @@ namespace Vet.Contexts
 
         public DbSet<Pet> Pets { get; set; }
 
+        public DbSet<Treatment> Treatments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=DESKTOP-AHVBG46;Database=Vet;User Id=VetDb;Password=VetDb123;encrypt=true;trustServerCertificate=true");

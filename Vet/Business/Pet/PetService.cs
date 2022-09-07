@@ -29,12 +29,18 @@ namespace Vet.Business.Pet
 
         public async Task<PetDTO> GetPetDTO(int id)
         {
-            var pet = await GetPet(id);
+            var table = VetContext.Pets;
 
-            PetDTO dto = new PetDTO();
-            dto.Id = pet.Id;
-            dto.Name = pet.Name;
-            dto.AnimalType = pet.AnimalType?.Name;
+            var query = table.Select(pet => new PetDTO()
+            {
+                Id = pet.Id,
+                Name = pet.Name,
+                AnimalType = pet.AnimalType.Name,
+                Birthdate = pet.Birthdate,
+                Owners = pet.PetOwners.Select(petOwner => petOwner.Owner).ToList()
+            });
+
+            PetDTO dto = await query.FirstOrDefaultAsync(pet => pet.Id == id);
 
             return dto;
         }

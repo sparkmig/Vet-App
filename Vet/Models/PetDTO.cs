@@ -16,7 +16,7 @@ namespace Vet.Models
 
         public DateTime Birthdate { get; set; }
 
-        public IEnumerable<Owner> Owners { get; set; }
+        public IList<Owner> Owners { get; set; }
         
         public IEnumerable<Order> Orders { get; set; }
     }

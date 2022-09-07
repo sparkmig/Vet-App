@@ -20,5 +20,8 @@ namespace Vet.Models
 
         [ForeignKey("AnimalTypeId")]
         public AnimalType AnimalType { get; set; }
+
+        [ForeignKey("PetId")]
+        public ICollection<PetOwner> PetOwners { get; set; }
     }
 }

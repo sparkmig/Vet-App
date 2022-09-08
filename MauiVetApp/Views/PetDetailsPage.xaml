@@ -15,8 +15,8 @@
             <Label Text="{Binding Pet.Name, StringFormat='Navn: {0}'}" />
             <Label Text="{Binding Pet.Birthdate, StringFormat='Fødeselsdag: {0}'}"></Label>
             <Label Text="{Binding Pet.AnimalType, StringFormat='Dyr: {0}'}"></Label>
-            <Button Text="Lav faktura" Clicked="Button_Clicked"/>
-            <Button Text="Hent faktura" />
+            <Button Text="Lav faktura" Clicked="CreateOrder_Button_Clicked"/>
+            <Button Text="Hent faktura" Clicked="ShowOrders_Button_Clicked"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

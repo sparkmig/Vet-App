@@ -12,6 +12,7 @@ public partial class MainPage : ContentPage
         Routing.RegisterRoute("pets/all", typeof(PetsPage ));
         Routing.RegisterRoute("pets/details", typeof(PetDetailsPage));
         Routing.RegisterRoute("pets/createOrder", typeof(CreateOrderPage));
+        Routing.RegisterRoute("pets/showOrders", typeof(ShowOrderPage));
         InitializeComponent();
     }
 

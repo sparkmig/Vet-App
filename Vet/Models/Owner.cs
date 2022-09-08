@@ -29,5 +29,7 @@ namespace Vet.Models
         public string Phone { get; set; }
         
         public string PostalCode { get; set; }
+
+        public string FullName { get => $"{FirstName} {LastName}"; }
     }
 }

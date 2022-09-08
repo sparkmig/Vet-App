@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiVetApp.Models"
+             x:Class="MauiVetApp.Views.ShowOrderPage"
+             Title="ShowOrderPage">
+    <ContentPage.BindingContext>
+        <local:ShowOrderPageModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Fakutraer:" />
+        <ListView Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" ItemsSource="{Binding Orders}" ItemSelected="Order_ListView_ItemSelected" SelectedItem="{Binding SelectedOrder}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Owner.FullName, StringFormat='Udstedt til: {0}'}" />
+                            <Label Text="{Binding Date, StringFormat='Udstedt d.: {0}'}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Grid.Column="2" Grid.Row="1" Orientation="Vertical">
+            <Label Text="{Binding SelectedOrder.Owner.FullName, StringFormat='Udstedt til: {0}'}"/>
+            <Label Text="{Binding SelectedOrder.Date, StringFormat='Udstedt d.: {0}'}"></Label>
+        </StackLayout>
+        <StackLayout Grid.Column="2" Grid.Row="2">
+            <ListView ItemsSource="{Binding SelectedOrder.OrderLines}" Grid.Column="2" Grid.Row="2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Treatment.Name, StringFormat='Navn på behandling: {0}'}" />
+                                <Label Text="{Binding Treatment.Description, StringFormat='Beskrivelse: {0}'}" />
+                                <Label Text="{Binding Amount, StringFormat='Antal: {0}'}" />
+                                <Label Text="{Binding ProductPrice, StringFormat='Pris/stk.: {0}'}" />
+                                <Label></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Text="{Binding SelectedOrder.TotalPrice, StringFormat='Total: {0},-'}"></Label>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -11,9 +11,10 @@ namespace Vet.Models
 
         public int Amount { get; set; }
 
-        public Treatment MyProperty { get; set; }
+        [ForeignKey("TreatmentId")]
+        public Treatment Treatment { get; set; }
 
-        public double Price { get; set; }
+        public double ProductPrice { get; set; }
 
         public int VetId { get; set; }
     }

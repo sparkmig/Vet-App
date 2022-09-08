@@ -7,13 +7,27 @@
     <ContentPage.BindingContext>
         <local:CreateOrderPageModel/>
     </ContentPage.BindingContext>
-    <StackLayout>
-        <Label Text="{Binding Pet.Name, StringFormat='Navn: {0}'}"/>
-        <Picker Title="Vælg faktura modtager" ItemsSource="{Binding Owners}" ItemDisplayBinding="{Binding FirstName, StringFormat='{0}'}" />
-        <StackLayout Orientation="Horizontal">
-            <Picker x:Name="Treatment_Picker" Title="Vælg Behandling" ItemsSource="{Binding Treatments}" ItemDisplayBinding="{Binding Name}"/>
+    <ScrollView>
+        <StackLayout>
+            <Label Text="{Binding Pet.Name, StringFormat='Navn: {0}'}"/>
+            <Picker Title="Vælg faktura modtager" x:Name="Owner_Picker" ItemsSource="{Binding Owners}" ItemDisplayBinding="{Binding FirstName, StringFormat='{0}'}" />
+            <Picker x:Name="Treatment_Picker" SelectedIndexChanged="Treatment_Picker_SelectedIndexChanged" Title="Vælg Behandling" ItemsSource="{Binding Treatments}" ItemDisplayBinding="{Binding Name}"/>
+            <Label x:Name="ChoosenTreatmentLabel" Text="Beskrivelse: "></Label>
             <Button Text="Tilføj Behandling" Clicked="AddTreatment_Clicked"></Button>
-            <Label x:Name="ChoosenTreatmentLabel"></Label>
+            <Label Text="Behandlinger:"></Label>
+            <ListView ItemsSource="{Binding TreatmentsAdded}" VerticalScrollBarVisibility="Always" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Name}"></Label>
+                                <Label Text="{Binding Description}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Gem faktura" x:Name="Save_btn" Clicked="Save_btn_Clicked"/>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -45,6 +45,11 @@ namespace Vet.Business.Pet
             return dto;
         }
 
+        public async Task NewInvoice(Models.Order order)
+        {
+            VetContext.Orders.Add(order);
+            await VetContext.SaveChangesAsync();
+        }
         public PetService()
         {
             VetContext = new VetContext();

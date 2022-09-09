@@ -14,6 +14,8 @@
             VerticalOptions="Center">
             <Button Text="Vis dyr" Clicked="ShowAnimals_Btn">
             </Button>
+            <Button Text="Statistik" Clicked="ShowStatistic_btn_Clicked">
+            </Button>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

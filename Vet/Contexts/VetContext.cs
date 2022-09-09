@@ -18,6 +18,8 @@ namespace Vet.Contexts
 
         public DbSet<Order> Orders { get; set; }
 
+        public DbSet<OrderLine> OrderLines { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer("Server=DESKTOP-AHVBG46;Database=Vet;User Id=VetDb;Password=VetDb123;encrypt=true;trustServerCertificate=true");

@@ -17,5 +17,6 @@ namespace Vet.Models
         public double ProductPrice { get; set; }
 
         public int VetId { get; set; }
+
     }
 }

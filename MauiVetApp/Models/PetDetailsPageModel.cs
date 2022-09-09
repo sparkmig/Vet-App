@@ -15,7 +15,7 @@ namespace MauiVetApp.Models
     {
         public PetDTO Pet { get; set; }
 
-        private PetService PetService { get; }
+        private IPetService PetService { get; }
 
         public PetDetailsPageModel()
         {

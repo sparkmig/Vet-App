@@ -15,4 +15,9 @@ public partial class StatisticOverviewPage : ContentPage
 		var model = (StatisticOverviewPageModel)this.BindingContext;
         model.SelectedChanged();
 	}
+
+	private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
+	{
+
+	}
 }

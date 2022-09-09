@@ -9,7 +9,7 @@ using Vet.Models;
 
 namespace Vet.Business.Owner
 {
-    public class OwnerService
+    public class OwnerService : IOwnerService
     {
         private VetContext VetContext { get; set; }
 

@@ -8,7 +8,7 @@ using Vet.Contexts;
 
 namespace Vet.Business.Order
 {
-    public class OrderService
+    public class OrderService : IOrderService
     {
         private VetContext VetContext { get; set; }
 

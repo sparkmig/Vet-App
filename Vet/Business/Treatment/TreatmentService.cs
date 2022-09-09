@@ -9,7 +9,7 @@ using Vet.Models;
 
 namespace Vet.Business.Treatment
 {
-    public class TreatmentService
+    public class TreatmentService : ITreatmentService
     {
         private VetContext VetContext { get; }
 

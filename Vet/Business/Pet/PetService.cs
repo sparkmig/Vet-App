@@ -10,7 +10,7 @@ using Vet.Models;
 
 namespace Vet.Business.Pet
 {
-    public class PetService
+    public class PetService : IPetService
     {
         private VetContext VetContext { get; }
 

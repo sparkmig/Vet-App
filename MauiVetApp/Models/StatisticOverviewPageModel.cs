@@ -12,7 +12,7 @@ namespace MauiVetApp.Models
 {
     internal class StatisticOverviewPageModel: INotifyPropertyChanged
     {
-        private TreatmentService TreatmentService { get; }
+        private ITreatmentService TreatmentService { get; }
         
         public TreatmentStatistic TreatmentStatistic { get; set; }
 

@@ -17,16 +17,13 @@ namespace MauiVetApp.Models
     {
         public ObservableCollection<Order> Orders { get; set; }
 
-        private OrderService OrderService { get; }
+        private IOrderService OrderService { get; }
         
-        private PetService PetService { get; }
-
         public Order SelectedOrder { get; set; }
 
         public ShowOrderPageModel()
         {
             OrderService = new OrderService();
-            PetService = new PetService();
 
             Orders = new();
         }

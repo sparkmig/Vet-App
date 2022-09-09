@@ -19,9 +19,9 @@ namespace MauiVetApp.Models
 
         public PetDTO Pet { get; set; }
 
-        private PetService PetService { get; }
+        private IPetService PetService { get; }
 
-        private TreatmentService TreatmentService { get; set; }
+        private ITreatmentService TreatmentService { get; set; }
 
         public ObservableCollection<Owner> Owners { get; set; }
 

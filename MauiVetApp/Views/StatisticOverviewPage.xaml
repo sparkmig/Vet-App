@@ -16,13 +16,18 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
-        <StackLayout Grid.Column="1" Grid.Row="1">
+        <!--<StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FlexLayout.AlignSelf="Center">
+            <DatePicker></DatePicker>
+            <DatePicker></DatePicker>
+        </StackLayout>-->
+        <StackLayout Grid.Column="1" Grid.Row="2">
             <Picker x:Name="TreatmentPicker" SelectedItem="{Binding SelectedTreatment}" Title="Vælg behandling" ItemsSource="{Binding Treatments}" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="Treatment_Picker_SelectedIndexChanged"></Picker>
         </StackLayout>
-        <StackLayout Grid.Column="2" Grid.Row="1">
+        <StackLayout Grid.Column="2" Grid.Row="2" Grid.RowSpan="2">
             <Label Text="{Binding TreatmentStatistic.Treatment.Name, StringFormat='Behandling: {0}'}" />
             <Label Text="{Binding TreatmentStatistic.Treatment.Description, StringFormat='Beskrivelse: {0}'}" />
             <Label Text="{Binding TreatmentStatistic.LastTreatmentDate, StringFormat='Sidste behandling: {0}'}" />

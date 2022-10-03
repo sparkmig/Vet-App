@@ -31,5 +31,7 @@ namespace Vet.Models
         public string PostalCode { get; set; }
 
         public string FullName { get => $"{FirstName} {LastName}"; }
+
+        public string UserId { get; set; }
     }
 }

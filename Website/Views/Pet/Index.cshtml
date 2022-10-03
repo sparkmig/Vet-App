@@ -1,0 +1,23 @@
+﻿@using Vet.Models
+@model PetDTO
+@{
+    Layout = "";
+}
+<td colspan="2">
+    <p>Navn: @Model.Name</p>
+    <p>Type: @Model.AnimalType</p>
+    <p>Fødselsdag: @Model.Birthdate</p>
+    <p>Antal Ordre: @Model.Orders.Count()</p>
+</td>
+<td>
+    <div style="overflow-y: scroll; height:150px">
+    @foreach(var order in Model.Orders){
+        <div style="border-bottom: 1px solid">
+            <p>Behandlinger: @string.Join(", ", order.OrderLines.Select(x => x.Treatment.Name))</p>
+            <p>Dato: @order.Date</p>
+            <p>Total: @order.OrderLines.Sum(x => x.ProductPrice * x.Amount),-</p>
+        </div>
+    }
+    </div>
+</td>
+<td></td>

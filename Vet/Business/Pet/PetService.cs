@@ -37,7 +37,11 @@ namespace Vet.Business.Pet
                 Name = pet.Name,
                 AnimalType = pet.AnimalType.Name,
                 Birthdate = pet.Birthdate,
-                Owners = pet.PetOwners.Select(petOwner => petOwner.Owner).ToList()
+                Owners = pet.PetOwners.Select(petOwner => petOwner.Owner).ToList(),
+                Orders = VetContext.Orders.Where(order => order.PetId == pet.Id)
+                                          .Include(x => x.OrderLines)
+                                          .ThenInclude(x => x.Treatment)
+                                          .ToList(),
             });
 
             PetDTO dto = await query.FirstOrDefaultAsync(pet => pet.Id == id);

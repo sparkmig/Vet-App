@@ -7,10 +7,23 @@
 @{
 }
 <script>
-    function selectPet(petId){
+    function selectPet(el, petId) {
         var container = document.querySelector(`[pet="${petId}"]`);
-        container.style = "";
-        $(container).load(`/pet/${petId}`);
+        if (container.innerHTML.length > 30) {
+            deselectPet(petId)
+            el.innerText = "Show More"
+
+        }
+        else {
+            container.style = "";
+            el.innerText = "Close"
+            $(container).load(`/pet/${petId}`);
+        }
+    }
+
+    function deselectPet(petId) {
+        var container = document.querySelector(`[pet="${petId}"]`);
+        container.innerHTML = "";
     }
 </script>
 
@@ -25,17 +38,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model){
+        @foreach (var item in Model)
+        {
             <tr>
                 <td>@Html.DisplayFor(model => item.Name)</td>
                 <td>@Html.DisplayFor(model => item.Birthdate)</td>
                 <td>@Html.DisplayFor(model => item.AnimalType.Name)</td>
-                <td><button onclick="selectPet(@item.Id)">Show More</button></td>
+                <td><button onclick="selectPet(this, @item.Id)">Show More</button></td>
             </tr>
             <tr style="height: 100%" petDetails pet="@item.Id">
-
             </tr>
         }
-        
+
     </tbody>
 </table>
